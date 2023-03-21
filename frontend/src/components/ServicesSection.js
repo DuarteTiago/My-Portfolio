@@ -4,6 +4,15 @@ import styled from "styled-components";
 
 import { About, Description, Image } from "../styles";
 
+//Import icons
+import { faGithub } from "@fortawesome/free-brands-svg-icons";
+import {
+  faGraduationCap,
+  faImages,
+  faLaptopCode,
+} from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
 const ServicesSection = () => {
   return (
     <Services>
@@ -15,28 +24,29 @@ const ServicesSection = () => {
         <Cards>
           <Card>
             <div className="icon">
-              Icone
+              <FontAwesomeIcon icon={faLaptopCode} size="4x" />
+
               <h3>Portfolio</h3>
             </div>
             <p>Check my work on my portfolio</p>
           </Card>
           <Card>
             <div className="icon">
-              Icone
+              <FontAwesomeIcon icon={faGraduationCap} size="4x" />
               <h3>Cursos</h3>
             </div>
             <p>Check my work on my portfolio</p>
           </Card>
           <Card>
             <div className="icon">
-              Icone
+              <FontAwesomeIcon icon={faImages} size="4x" />
               <h3>Hobbies</h3>
             </div>
             <p>Check my work on my portfolio</p>
           </Card>
           <Card>
             <div className="icon">
-              Icone
+              <FontAwesomeIcon icon={faGithub} size="4x" />
               <h3>Github</h3>
             </div>
             <p>Check my work on my portfolio</p>
@@ -64,7 +74,7 @@ const ServiceDescription = styled(Description)`
 const Cards = styled.div`
   display: flex;
   flex-wrap: wrap;
-  padding: 1.5rem;
+  padding: 1rem;
 `;
 const Card = styled.div`
   padding: 0.5rem;

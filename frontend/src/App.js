@@ -3,14 +3,21 @@ import React from "react";
 //Global Style
 import GlobalStyle from "./components/globalStyle";
 
+//Roteamento
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+
 // Components
 import AboutUs from "./pages/Home";
 
 function App() {
   return (
     <div>
-      <GlobalStyle />
-      <AboutUs />
+      <BrowserRouter>
+        <GlobalStyle />
+        <Routes>
+          <Route path="/" element={<AboutUs />} />
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }
