@@ -1,68 +1,27 @@
 import React from "react";
 
 import styled from "styled-components";
+import moment from "moment";
 
-const Card = () => {
+const Card = ({ project }) => {
   return (
-    <>
-      <StyledCard>
-        <Content>
-          <Image src="https://images.pexels.com/photos/546819/pexels-photo-546819.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" />
-          <Info>
-            <h3>Title</h3>
-            <h4>Date</h4>
-            <p>shot description</p>
-          </Info>
-        </Content>
-      </StyledCard>
-      <StyledCard>
-        <Content>
-          <Image src="https://images.pexels.com/photos/356056/pexels-photo-356056.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" />
-          <Info>
-            <h3>Title</h3>
-            <h4>Date</h4>
-            <p>shot description</p>
-          </Info>
-        </Content>
-      </StyledCard>
-      <StyledCard>
-        <Content>
-          <Image src="https://images.pexels.com/photos/459654/pexels-photo-459654.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" />
-          <Info>
-            <h3>Title</h3>
-            <h4>Date</h4>
-            <p>shot description</p>
-          </Info>
-        </Content>
-      </StyledCard>
-      <StyledCard>
-        <Content>
-          <Image src="https://images.pexels.com/photos/450035/pexels-photo-450035.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" />
-          <Info>
-            <h3>Title</h3>
-            <h4>Date</h4>
-            <p>shot description</p>
-          </Info>
-        </Content>
-      </StyledCard>
-      <StyledCard>
-        <Content>
-          <Image src="https://images.pexels.com/photos/220357/pexels-photo-220357.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" />
-          <Info>
-            <h3>Title</h3>
-            <h4>Date</h4>
-            <p>shot description</p>
-          </Info>
-        </Content>
-      </StyledCard>
-    </>
+    <StyledCard>
+      <Content>
+        <Image src={project.image} />
+        <Info>
+          <h3>{project.title}</h3>
+          <h4>{moment(project.createdAt).format("MMM  YYYY")}</h4>
+          <p>{project.description}</p>
+        </Info>
+      </Content>
+    </StyledCard>
   );
 };
 
 const StyledCard = styled.div`
-  background-color: green;
+  background-color: #282828;
+  box-shadow: 0px 5px 10px #ff6347;
   min-height: 30vh;
-  border-color: #ff6347;
   text-align: center;
   border-radius: 1rem;
   cursor: pointer;
@@ -74,11 +33,11 @@ const Content = styled.div`
   flex-direction: column;
   justify-content: space-around;
   width: 100%;
-  height: 100%;
+  height: 65vh;
 `;
 const Image = styled.img`
   width: 100%;
-  height: 100%;
+  height: 70%;
 `;
 
 const Info = styled.div`

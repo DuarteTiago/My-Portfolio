@@ -59,7 +59,7 @@ const StyledNav = styled.nav`
     text-decoration: none;
   }
   img {
-    width: 100px;
+    width: 80px;
   }
 `;
 export default Nav;
