@@ -1,19 +1,22 @@
 import React from "react";
+import moment from "moment";
 
 import styled from "styled-components";
-import moment from "moment";
+import { Link } from "react-router-dom";
 
 const Card = ({ project }) => {
   return (
     <StyledCard>
-      <Content>
-        <Image src={project.image} />
-        <Info>
-          <h3>{project.title}</h3>
-          <h4>{moment(project.createdAt).format("MMM  YYYY")}</h4>
-          <p>{project.description}</p>
-        </Info>
-      </Content>
+      <Link to={`/portfolio/${project.slug}`}>
+        <Content>
+          <Image src={project.image} />
+          <Info>
+            <h3>{project.title}</h3>
+            <h4>{moment(project.createdAt).format("MMM  YYYY")}</h4>
+            <p>{project.description}</p>
+          </Info>
+        </Content>
+      </Link>
     </StyledCard>
   );
 };
@@ -26,6 +29,9 @@ const StyledCard = styled.div`
   border-radius: 1rem;
   cursor: pointer;
   overflow: hidden;
+  a {
+    text-decoration: none;
+  }
 `;
 
 const Content = styled.div`
