@@ -6,7 +6,12 @@ import GlobalStyle from "./components/globalStyle";
 //Roteamento
 import { Route, Routes } from "react-router-dom";
 
-// Components
+//Icons
+import { library } from "@fortawesome/fontawesome-svg-core";
+import { fab } from "@fortawesome/free-brands-svg-icons";
+import { fas } from "@fortawesome/free-solid-svg-icons";
+
+//Components
 import AboutUs from "./pages/Home";
 import Portfolio from "./pages/Portfolio";
 import PortfolioDetail from "./components/PortfolioDetail";
@@ -14,10 +19,11 @@ import ContactMe from "./pages/ContactMe";
 import Nav from "./components/Nav";
 
 function App() {
+  library.add(fab, fas);
   return (
     <div>
-      <Nav />
       <GlobalStyle />
+      <Nav />
 
       <Routes>
         <Route path="/" element={<AboutUs />} />

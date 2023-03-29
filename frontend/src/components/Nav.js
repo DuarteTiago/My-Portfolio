@@ -15,25 +15,35 @@ const Nav = () => {
   };
 
   return (
-    <StyledNav>
-      <Link to="/">
-        <img src={logo} />
-      </Link>
+    <div>
+      <StyledNav>
+        <StyledLogo>
+          <Link to="/">
+            <img src={logo} />
+          </Link>
+        </StyledLogo>
 
-      <ul>
-        <li>
-          <Link to="/">{menuOptions.about}</Link>
-        </li>
-        <li>
-          <Link to={"/portfolio"}>{menuOptions.portfolio}</Link>
-        </li>
-        <li>
-          <Link to={"/contact"}>{menuOptions.contact}</Link>
-        </li>
-      </ul>
-    </StyledNav>
+        <ul>
+          <li>
+            <Link to="/">{menuOptions.about}</Link>
+          </li>
+          <li>
+            <Link to={"/portfolio"}>{menuOptions.portfolio}</Link>
+          </li>
+          <li>
+            <Link to={"/contact"}>{menuOptions.contact}</Link>
+          </li>
+        </ul>
+      </StyledNav>
+    </div>
   );
 };
+
+const StyledLogo = styled.div`
+  img {
+    width: 70px;
+  }
+`;
 
 const StyledNav = styled.nav`
   min-height: 10vh;
@@ -58,8 +68,6 @@ const StyledNav = styled.nav`
     color: white;
     text-decoration: none;
   }
-  img {
-    width: 80px;
-  }
 `;
+
 export default Nav;
