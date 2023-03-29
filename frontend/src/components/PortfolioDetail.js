@@ -1,15 +1,20 @@
 import React from "react";
 import styled from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useParams } from "react-router-dom";
+import { useApi } from "../hooks/useApi";
 
 const PortfolioDetail = () => {
+  const { slug } = useParams();
+  const { data } = useApi(`/portfolio/${slug}`);
+
   return (
     <Detail>
       <Stats>
         <div>
-          <Title>Title</Title>
+          <Title>{data?.data?.title} </Title>
           <DescriptionShort>
-            <p>description</p>
+            <p>{data?.data?.description}</p>
           </DescriptionShort>
         </div>
 
@@ -17,25 +22,24 @@ const PortfolioDetail = () => {
           <h3>Tecnologias</h3>
 
           <Technologies>
-            <Technologie>
-              <FontAwesomeIcon icon={["fab", "react"]} size="4x" />
-              React
-            </Technologie>
-            <Technologie>
-              <FontAwesomeIcon icon={["fab", "node"]} size="4x" />
-              Node
-            </Technologie>
-            <Technologie>
-              <FontAwesomeIcon icon={["fas", "database"]} size="4x" />
-              MongoDB
-            </Technologie>
+            {data?.data?.technologies.map((tech) => {
+              return (
+                <Technology key={tech.icon}>
+                  <FontAwesomeIcon
+                    icon={[tech.iconType, tech.icon]}
+                    size="4x"
+                  />
+                  {[tech.label]}
+                </Technology>
+              );
+            })}
           </Technologies>
         </Info>
       </Stats>
       <Description>
-        <p>long description</p>
+        <p>{data?.data?.longDescription} </p>
       </Description>
-      <img src="https://images.pexels.com/photos/546819/pexels-photo-546819.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" />
+      <img src={data?.data?.image} />
     </Detail>
   );
 };
@@ -92,7 +96,7 @@ const Technologies = styled.div`
   }
 `;
 
-const Technologie = styled.div`
+const Technology = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
