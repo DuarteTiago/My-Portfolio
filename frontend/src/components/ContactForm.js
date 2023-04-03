@@ -1,5 +1,6 @@
 import moment from "moment";
 import React, { useState } from "react";
+
 import styled from "styled-components";
 import { save } from "../services/Sheet";
 
@@ -7,15 +8,29 @@ const ContactForm = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
+  const [sucesso, setSucesso] = useState(false);
+  const [erro, setErro] = useState(false);
 
-  const contactMeHandler = (e) => {
+  const resetForm = () => {
+    setName("");
+    setEmail("");
+    setMessage("");
+  };
+
+  const contactMeHandler = async (e) => {
+    e.preventDefault();
     const data = {
       Nome: name,
       Email: email,
       Mensagem: message,
       Data: moment().format("DD/MM/YYYY"),
     };
-    save(data);
+    const result = await save(data);
+
+    setSucesso(!result);
+    resetForm();
+
+    setErro(result);
   };
 
   return (
@@ -51,12 +66,17 @@ const ContactForm = () => {
         />
       </Input>
       <button type="submit">Enviar</button>
+      {sucesso && <h4>Mensagem enviada com sucesso!</h4>}
+      {erro && <h4>Ocorreu um erro, por favor enviar novamente!</h4>}
     </Form>
   );
 };
 
 const Form = styled.form`
   button {
+    margin-top: 2rem;
+  }
+  h4 {
     margin-top: 2rem;
   }
 `;
