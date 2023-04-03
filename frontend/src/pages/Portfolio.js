@@ -4,17 +4,23 @@ import styled from "styled-components";
 import { useLocation } from "react-router-dom";
 
 import Card from "../components/Card";
-
 import PortfolioDetail from "../components/PortfolioDetail";
-
 import { useApi } from "../hooks/useApi";
+
+import { motion } from "framer-motion";
+import { pageAnimation } from "../animation";
 
 const Portfolio = () => {
   const location = useLocation();
   const slug = location.pathname.split("/")[2];
   const { data } = useApi("/portfolio");
   return (
-    <PortfolioList>
+    <PortfolioList
+      initial="hidden"
+      animate="show"
+      exit="exit"
+      variants={pageAnimation}
+    >
       {slug && <PortfolioDetail slug={slug} />}
       <CardList>
         {data?.data?.map((project) => {
@@ -25,7 +31,7 @@ const Portfolio = () => {
   );
 };
 
-const PortfolioList = styled.div`
+const PortfolioList = styled(motion.div)`
   min-height: 90vh;
   orverflow: hidden;
   padding: 5rem 10rem;

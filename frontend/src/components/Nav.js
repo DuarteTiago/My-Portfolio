@@ -15,27 +15,25 @@ const Nav = () => {
   };
 
   return (
-    <div>
-      <StyledNav>
-        <StyledLogo>
-          <Link to="/">
-            <img src={logo} />
-          </Link>
-        </StyledLogo>
+    <StyledNav>
+      <StyledLogo>
+        <Link to="/">
+          <img src={logo} />
+        </Link>
+      </StyledLogo>
 
-        <ul>
-          <li>
-            <Link to="/">{menuOptions.about}</Link>
-          </li>
-          <li>
-            <Link to={"/portfolio"}>{menuOptions.portfolio}</Link>
-          </li>
-          <li>
-            <Link to={"/contact"}>{menuOptions.contact}</Link>
-          </li>
-        </ul>
-      </StyledNav>
-    </div>
+      <ul>
+        <li>
+          <Link to="/">{menuOptions.about}</Link>
+        </li>
+        <li>
+          <Link to={"/portfolio"}>{menuOptions.portfolio}</Link>
+        </li>
+        <li>
+          <Link to={"/contact"}>{menuOptions.contact}</Link>
+        </li>
+      </ul>
+    </StyledNav>
   );
 };
 
@@ -53,10 +51,10 @@ const StyledNav = styled.nav`
   align-items: center;
   padding: 1rem 10rem;
   background: #282828;
+  position: sticky;
   top: 0;
-  h1 {
-    font-zise: 40px;
-  }
+  z-index: 10;
+
   ul {
     display: flex;
     list-style: none;
