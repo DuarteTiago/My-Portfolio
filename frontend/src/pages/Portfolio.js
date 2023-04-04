@@ -10,6 +10,8 @@ import { useApi } from "../hooks/useApi";
 import { motion } from "framer-motion";
 import { pageAnimation } from "../animation";
 
+import ScrollTop from "../components/ScrollTop";
+
 const Portfolio = () => {
   const location = useLocation();
   const slug = location.pathname.split("/")[2];
@@ -27,6 +29,7 @@ const Portfolio = () => {
           return <Card key={project.slug} project={project} />;
         })}
       </CardList>
+      <ScrollTop />
     </PortfolioList>
   );
 };
