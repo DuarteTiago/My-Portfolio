@@ -1,28 +1,31 @@
 import React from "react";
 import { About, Description, Image } from "../styles";
+import { motion } from "framer-motion";
+import { fade, photoAnimation, titleAnimation } from "../animation";
 
 const AboutSection = () => {
   return (
     <About>
       <Description>
-        <h2>Tiago Duarte</h2>
-        <h2>Desenvolvedor de sistemas</h2>
-        <p>
+        <motion.h2 variants={titleAnimation}>Tiago Duarte</motion.h2>
+        <motion.h2 variants={titleAnimation}>
+          Desenvolvedor de sistemas
+        </motion.h2>
+        <motion.p variants={fade}>
           Lorem Ipsum is simply dummy text of the printing and typesetting
           industry. Lorem Ipsum has been the industry's standard dummy text ever
           since the 1500s, when an unknown printer took a galley of type and
           scrambled it to make a type specimen book. It has survived not only
           five centuries, but also the leap into electronic typesetting,
-          remaining essentially unchanged. It was popularised in the 1960s with
-          the release of Letraset sheets containing Lorem Ipsum passages, and
-          more recently with desktop publishing software like Aldus PageMaker
-          including versions of Lorem Ipsum.
-        </p>
+          remaining essentially unchanged.
+        </motion.p>
 
         <button>Contato</button>
       </Description>
       <Image>
-        <img src="http://lorempixel.com.br/500/400/?2"></img>
+        <motion.div variants={photoAnimation}>
+          <img src="http://lorempixel.com.br/500/400/?2"></img>
+        </motion.div>
       </Image>
     </About>
   );
