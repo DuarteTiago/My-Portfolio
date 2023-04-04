@@ -1,9 +1,16 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import { About, Description, Image } from "../styles";
 import { motion } from "framer-motion";
 import { fade, photoAnimation, titleAnimation } from "../animation";
 
 const AboutSection = () => {
+  let history = useNavigate();
+
+  const redirectHandler = () => {
+    history("/contact");
+  };
+
   return (
     <About>
       <Description>
@@ -20,7 +27,7 @@ const AboutSection = () => {
           remaining essentially unchanged.
         </motion.p>
 
-        <button>Contato</button>
+        <button onClick={redirectHandler}>Contato</button>
       </Description>
       <Image>
         <motion.div variants={photoAnimation}>
