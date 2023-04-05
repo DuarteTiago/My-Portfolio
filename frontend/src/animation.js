@@ -1,5 +1,3 @@
-import { easeOut } from "framer-motion";
-
 export const pageAnimation = {
   hidden: {
     opacity: 0,
