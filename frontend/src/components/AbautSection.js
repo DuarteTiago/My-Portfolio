@@ -27,7 +27,7 @@ const AboutSection = () => {
           remaining essentially unchanged.
         </motion.p>
 
-        <button onClick={redirectHandler}>Contato</button>
+        <button onClick={redirectHandler}>Contatos</button>
       </Description>
       <Image>
         <motion.div variants={photoAnimation}>
