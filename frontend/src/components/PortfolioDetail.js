@@ -87,11 +87,15 @@ const Detail = styled.div`
   min-height: 70vh;
   background: white;
   position: absolite;
+  border-radius: 1rem;
+  box-shadow: 0px 0px 10px 5px #ff6347;
   margin-left: 10%;
-  margin-top: 5%;
+  margin-top: 10%;
   margin-bottom: 5%;
   z-index: 10;
   img {
+    margin-bottom: 0%;
+    border-radius: 1rem;
     width: 100%;
     object-fit: cover;
     height: 50vh;
