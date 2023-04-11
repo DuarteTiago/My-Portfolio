@@ -58,7 +58,10 @@ p{
   line-height: 150%;
 
 }
-
+Label{
+  color: black;
+  font-weight: bold
+}
 
 `;
 export default GlobalStyle;
